@@ -19,8 +19,8 @@ points:
           reverse: true
           keycaps: true
         nets:
-          from: =colrow
-          to: =row_net
+          from: =column_net
+          to: GND
   zones:
     matrix:
       key.padding: ky
@@ -266,8 +266,8 @@ pcbs:
           hotswap: true
           reverse: true
           keycaps: true
-          from: "{{colrow}}"
-          to: "{{row_net}}"
+          from: "{{column_net}}"
+          to: "GND"
       mcu_l:
         what: promicro
         where:
