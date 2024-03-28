@@ -20,7 +20,7 @@ points:
           keycaps: true
         nets:
           from: =colrow
-          to: =column_net
+          to: =row_net
   zones:
     matrix:
       key.padding: ky
