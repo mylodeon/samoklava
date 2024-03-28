@@ -12,7 +12,7 @@ license). Please consult your local regulations around radio frequencies and wha
 country.
 
 left | right
--|-
+-|-	
 ![left](images/board-front.png) | ![right](images/board-back.png)
 
 A 5x3 split keyboard with 3 thumb keys. There is nothing unique about the keyboard layout. It's inspired by Corne and

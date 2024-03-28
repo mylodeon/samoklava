@@ -21,6 +21,8 @@ points:
         nets:
           from: =colrow
           to: =column_net
+      promicro:
+        type: nicenano
   zones:
     matrix:
       key.padding: ky
