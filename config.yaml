@@ -1,8 +1,8 @@
 meta:
   engine: 4.0.4
-  name: samoklava
+  name: Zuuzboard
   version: 0.3
-  author: soundmonster
+  author: Deon
   url: https://github.com/soundmonster/samoklava
 units:
   kx: cx
@@ -21,13 +21,6 @@ points:
         nets:
           from: =colrow
           to: =column_net
-      diode:
-        type: diode
-        nets:
-          from: =colrow
-          to: =row_net
-        anchor:
-          shift: [0, -5]
   zones:
     matrix:
       key.padding: ky
@@ -394,7 +387,7 @@ pcbs:
             - matrix_pinky_bottom
           shift: [0.75 kx, 0]
         params:
-          text: "samoklava v0.3\\nby soundmonster"
+          text: "Zuuzboard v0.1\\nby deonb"
           justify: left
       info_r:
         what: text
@@ -404,6 +397,6 @@ pcbs:
           shift: [0.75 kx, 0]
         params:
           layer: B.SilkS
-          text: "samoklava v0.3\\nby soundmonster"
+          text: "Zuuzboard v0.1\\nby deonb"
           justify: right mirror
 
