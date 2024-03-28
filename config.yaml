@@ -33,9 +33,14 @@ points:
           reverse: true
   zones:
     matrix:
+      anchor:
+        shift: [50, 50]
       key.padding: ky
       columns:
         pinky:
+          spread: 18
+          rotate: 17
+          origin: [0, -ky]
           key:
             bind: [0.1, 0.5 kx, 0.1, 0.1]
           rows:
@@ -46,6 +51,10 @@ points:
             top:
               column_net: P4
         ring:
+          spread: 18
+          stagger: ky
+          rotate: -7
+          origin: [0, -ky]
           key:
             bind: [0.1, 0.5 kx, 0.1, 0.1]
           rows:
@@ -55,7 +64,11 @@ points:
               column_net: P2
             top:
               column_net: P0
-        middle:
+        home:
+          spread: 18
+          stagger: ky/3
+          rotate: -5
+          origin: [0, -ky]
           key:
             bind: [0.1, 0.1, 0.5 kx, 0.1]
             shift: [0.2, 0]
@@ -67,6 +80,10 @@ points:
             top:
               column_net: P15
         index:
+          spread: 18
+          stagger: -ky/3
+          rotate: -5
+          origin: [0, -ky]
           key:
             bind: [0.1, 0.1, 0.5 kx, 0.5 kx]
           rows:
@@ -77,6 +94,9 @@ points:
             top:
               column_net: P10
         inner:
+          spread: 19
+          stagger: -ky/6
+          origin: [0, -ky]
           key:
             bind: [0.1, 0.1, 0.1, 0.5 kx]
           rows:
@@ -89,26 +109,25 @@ points:
     thumbfan:
       anchor:
         ref: matrix_inner_bottom
-        shift: [-0.5 kx, -1 ky]
+        shift: [-1.10 kx, -1.0 ky]
       columns:
         near:
+          spread: kx
+          rotate: -15
+          origin: [-1.5 kx, -0.5 ky]
           key:
-            spread: kx
-            splay: -15
-            origin: [-0.8 kx, -0.5 ky]
             column_net: P7
         home:
-          key:
             spread: kx
-            splay: -15
+          rotate: -15
             origin: [-0.5 kx, -0.5 ky]
+          key:
             column_net: P8
         far:
-          key:
             spread: kx
-            splay: -15
-            rotate: 90
+          rotate: -15
             origin: [-0.5 kx, -0.5 ky]
+          key:
             column_net: P9
       rows:
         thumb:
@@ -240,20 +259,22 @@ pcbs:
           from: GND
           to: RST
       info_l:
-        what: text
-        where:
+        type: text
+        anchor:
           ref:
-            - matrix_pinky_bottom
-          shift: [0.75 kx, 0]
+            - thumbfan_near_thumb
+          shift: [ -1.1 kx, 0]
+          rotate: 15
         params:
           text: "Zuuzboard v0.1\\nby deonb"
           justify: left
       info_r:
-        what: text
-        where:
+        type: text
+        anchor:
           ref:
-            - matrix_pinky_bottom
-          shift: [0.75 kx, 0]
+            - thumbfan_near_thumb
+          shift: [ -1.1 kx, 0]
+          rotate: 15
         params:
           layer: B.SilkS
           text: "Zuuzboard v0.1\\nby deonb"
