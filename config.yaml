@@ -19,8 +19,8 @@ points:
           reverse: true
           keycaps: true
         nets:
-          from: =colrow
-          to: =column_net
+          from: =column_net
+          to: GND
       promicro:
         type: nicenano
   zones:
