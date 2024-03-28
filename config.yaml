@@ -247,15 +247,6 @@ pcbs:
           keycaps: true
           from: "{{colrow}}"
           to: "{{column_net}}"
-      diode:
-        what: diode
-        where:
-          - /matrix_.*/
-          - /thumbfan_.*/
-        adjust.shift: [0, -5]
-        params:
-          from: "{{colrow}}"
-          to: "{{row_net}}"
       mcu_l:
         what: promicro
         where:
