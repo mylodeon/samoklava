@@ -266,17 +266,6 @@ pcbs:
         outline: pcb
         layer: Edge.Cuts
     footprints:
-      choc_hotswap:
-        what: choc
-        where:
-          - /matrix_.*/
-          - /thumbfan_.*/
-        params:
-          hotswap: true
-          reverse: true
-          keycaps: true
-          from: "{{colrow}}"
-          to: "{{column_net}}"
       mcu_l:
         what: promicro
         where:
