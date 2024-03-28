@@ -1,9 +1,3 @@
-meta:
-  engine: 4.0.4
-  name: Zuuzboard
-  version: 0.3
-  author: Deon
-  url: https://github.com/soundmonster/samoklava
 units:
   kx: cx
   ky: cy
@@ -29,8 +23,8 @@ points:
           from: =column_net
           to: GND
         params:
-          keycaps: true
-          reverse: true
+            keycaps: true
+            reverse: true
   zones:
     matrix:
       anchor:
@@ -118,15 +112,15 @@ points:
           key:
             column_net: P7
         home:
-            spread: kx
+          spread: kx
           rotate: -15
-            origin: [-0.5 kx, -0.5 ky]
+          origin: [-0.5 kx, -0.5 ky]
           key:
             column_net: P8
         far:
-            spread: kx
+          spread: kx
           rotate: -15
-            origin: [-0.5 kx, -0.5 ky]
+          origin: [-0.5 kx, -0.5 ky]
           key:
             column_net: P9
       rows:
@@ -134,24 +128,24 @@ points:
           row_net: P7
 outlines:
   exports:
-  raw:
+    raw:
       - type: keys
         side: left
-      size: [kx + px, ky + py]
-      corner: px
-  thumbfan_glue:
+        size: [kx + px, ky + py]
+        corner: px
+    thumbfan_glue:
       - type: polygon
-      points:
+        points:
           - ref: matrix_inner_home
-        - ref: thumbfan_far_thumb
-          shift: [0.5 kx - 0.5px, 0.5 ky + 0.5 py]
-        - ref: thumbfan_far_thumb
-          shift: [0.5 kx - 0.5px, -0.5 ky - 0.5 py]
-        - ref: thumbfan_near_thumb
+          - ref: thumbfan_far_thumb
+            shift: [0.5 kx - 0.5px, 0.5 ky + 0.5 py]
+          - ref: thumbfan_far_thumb
+            shift: [0.5 kx - 0.5px, -0.5 ky - 0.5 py]
+          - ref: thumbfan_near_thumb
             shift: [-0.5 kx - px, -0.5 ky - py]
-        - ref: matrix_pinky_bottom
-          shift: [0.5 kx - 0.5 py, -0.5 ky - 0.5 py]
-        - ref: matrix_pinky_home
+          - ref: matrix_pinky_bottom
+            shift: [0.5 kx - 0.5 py, -0.5 ky - 0.5 py]
+          - ref: matrix_pinky_home
           - ref: matrix_inner_bottom
             shift: [0.5 kx + 0.5px, -0.5 ky + 0.5 py]
     controller_area:
@@ -266,7 +260,7 @@ pcbs:
           shift: [ -1.1 kx, 0]
           rotate: 15
         params:
-          text: "Zuuzboard v0.1\\nby deonb"
+          text: "rae-dux v0.1\\nby ajrae"
           justify: left
       info_r:
         type: text
@@ -277,6 +271,5 @@ pcbs:
           rotate: 15
         params:
           layer: B.SilkS
-          text: "Zuuzboard v0.1\\nby deonb"
+          text: "rae-dux v0.1\\nby ajrae"
           justify: right mirror
-
