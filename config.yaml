@@ -116,7 +116,6 @@ points:
             column_net: P9
       rows:
         thumb:
-d
 outlines:
   # board dimensions according to JLCPCB: 122.28 mm x 101.05 mm
   raw:
