@@ -88,7 +88,7 @@ points:
     thumbfan:
       anchor:
         ref: matrix_inner_bottom
-        shift: [-0.3 kx, -1 ky]
+        shift: [-0.3 kx, -1.25 ky]
       columns:
         near:
           key:
@@ -99,16 +99,16 @@ points:
         home:
           key:
             spread: kx
-            splay: -10
+            splay: -12
             rotate: 90
-            origin: [-0.4 kx, -0.6 ky]
+            origin: [1 kx, -1.5 ky]
             column_net: P8
         far:
           key:
             spread: kx
             splay: -10
             rotate: 90
-            origin: [-0.5 kx, -0.6 ky]
+            origin: [-0.5 kx, -1.5 ky]
             column_net: P9
       rows:
         thumb:
@@ -125,13 +125,13 @@ outlines:
     - what: polygon
       points:
       - ref: matrix_inner_bottom
-        shift: [0.5 kx + 0.5px, -0.5 ky + 0.5 py]
+        shift: [0.5 kx + 0px, -0.5 ky + 0.5 py]
       - ref: thumbfan_far_thumb
-        shift: [0.64 kx - 0.5px, 0.5 ky + 0.5 py]
+        shift: [0.64 kx - 0.5px, 0.4 ky + 0.5 py]
       - ref: thumbfan_far_thumb
-        shift: [0.4 kx - 0.5px, -0.5 ky - 0.5 py]
+        shift: [0 kx - 3px, -0.5 ky - 0.5 py]
       - ref: thumbfan_near_thumb
-        shift: [-0.5 kx + 0.5 px, -0.5 ky - 0.5 py]
+        shift: [-0 kx + 1 px, -0.5 ky - 0.5 py]
       - ref: matrix_pinky_bottom
         shift: [0.5 kx - 0.5 py, -0.5 ky - 0.5 py]
       - ref: matrix_pinky_home
@@ -171,13 +171,18 @@ outlines:
     - what: rectangle 
       where: true
       asym: source
+      size: [kx, ky] 
+  keycapspacing:
+    - what: rectangle 
+      where: true
+      asym: source
       size: [kx+3, ky+3] 
       corner: 2
   keywell:
     - "raw"
     - "+patch_inner"
     - "+patch_outer"
-    - "+keycaps"
+    - "+keycapspacing"
     - "+thumbfan_glue"
   base_outline:
     - "keywell"
