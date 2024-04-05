@@ -29,6 +29,7 @@ points:
           key:
             stagger: 0 ky
             spread: kx
+            splay: 5
           rows:
             bottom:
               column_net: P6
@@ -39,7 +40,8 @@ points:
         ring:
           key:
             stagger: 0.65 ky
-            spread: kx
+            spread: 19
+            splay: -2
           rows:
             bottom:
               column_net: P3
@@ -47,10 +49,12 @@ points:
               column_net: P2
             top:
               column_net: P0
+              bind: 55
         middle:
           key:
             stagger: 0.4 ky
-            spread: kx
+            spread: 19
+            splay: -2
           rows:
             bottom:
               column_net: P1
@@ -61,7 +65,8 @@ points:
         index:
           key:
             stagger: -0.4 ky
-            spread: kx
+            spread: 18.5
+            splay: -1
           rows:
             bottom:
               column_net: P14
@@ -83,26 +88,27 @@ points:
     thumbfan:
       anchor:
         ref: matrix_inner_bottom
-        shift: [-0.5 kx, -1 ky]
+        shift: [-0.3 kx, -1 ky]
       columns:
         near:
           key:
             spread: kx
             splay: -15
-            origin: [-0.8 kx, -0.5 ky]
+            origin: [-0.8 kx, -1.5 ky]
             column_net: P7
         home:
           key:
             spread: kx
-            splay: -15
-            origin: [-0.5 kx, -0.5 ky]
+            splay: -10
+            rotate: 90
+            origin: [-0.4 kx, -0.6 ky]
             column_net: P8
         far:
           key:
             spread: kx
-            splay: -15
+            splay: -10
             rotate: 90
-            origin: [-0.5 kx, -0.5 ky]
+            origin: [-0.5 kx, -0.6 ky]
             column_net: P9
       rows:
         thumb:
@@ -114,22 +120,22 @@ outlines:
       where: true
       asym: source
       size: [kx + px, ky + py]
-      corner: px
+      corner: 2
   thumbfan_glue:
     - what: polygon
       points:
-        - ref: matrix_inner_bottom
-          shift: [0.5 kx + 0.5px, -0.5 ky + 0.5 py]
-        - ref: thumbfan_far_thumb
-          shift: [0.5 kx - 0.5px, 0.5 ky + 0.5 py]
-        - ref: thumbfan_far_thumb
-          shift: [0.5 kx - 0.5px, -0.5 ky - 0.5 py]
-        - ref: thumbfan_near_thumb
-          shift: [-0.5 kx + 0.5 px, -0.5 ky - 0.5 py]
-        - ref: matrix_pinky_bottom
-          shift: [0.5 kx - 0.5 py, -0.5 ky - 0.5 py]
-        - ref: matrix_pinky_home
-        - ref: matrix_inner_home
+      - ref: matrix_inner_bottom
+        shift: [0.5 kx + 0.5px, -0.5 ky + 0.5 py]
+      - ref: thumbfan_far_thumb
+        shift: [0.64 kx - 0.5px, 0.5 ky + 0.5 py]
+      - ref: thumbfan_far_thumb
+        shift: [0.4 kx - 0.5px, -0.5 ky - 0.5 py]
+      - ref: thumbfan_near_thumb
+        shift: [-0.5 kx + 0.5 px, -0.5 ky - 0.5 py]
+      - ref: matrix_pinky_bottom
+        shift: [0.5 kx - 0.5 py, -0.5 ky - 0.5 py]
+      - ref: matrix_pinky_home
+      - ref: matrix_inner_home
   patch_outer:
     - what: polygon
       points:
@@ -165,12 +171,13 @@ outlines:
     - what: rectangle 
       where: true
       asym: source
-      size: [kx, ky] 
-      corner: 1
+      size: [kx+3, ky+3] 
+      corner: 2
   keywell:
     - "raw"
     - "+patch_inner"
     - "+patch_outer"
+    - "+keycaps"
     - "+thumbfan_glue"
   base_outline:
     - "keywell"
@@ -180,13 +187,13 @@ outlines:
       what: circle
       where:
         - ref: matrix_ring_home
-          shift: [-0.5 kx, 0 ky]
+          shift: [-0.55 kx, 0.4 ky]
       radius: 1.05
     bottom_left:
       what: circle
       where:
         - ref: matrix_pinky_bottom
-          shift: [0.5 kx, 0]
+          shift: [0.7 kx, 0]
       radius: 1.05
     top_right:
       what: circle
@@ -198,13 +205,13 @@ outlines:
       what: circle
       where:
         - ref: matrix_index_bottom
-          shift: [0, -1.06 ky]
+          shift: [0.5, -1.06 ky]
       radius: 1.05
     thumb:
       what: circle
       where:
         - ref: thumbfan_far_thumb
-          shift: [-0.55 kx, 0]
+          shift: [0 kx, 10]
       radius: 1.05
   mounting_holes:
     $extends: outlines.screw_holes
@@ -404,4 +411,3 @@ pcbs:
           layer: B.SilkS
           text: "Zuuzboard v0.1\\nby deonb"
           justify: right mirror
-
