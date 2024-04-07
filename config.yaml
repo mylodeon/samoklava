@@ -403,24 +403,24 @@ pcbs:
           left: ''
           right: Bplus
       encoder:
-        type: rotary
-        anchor: 
+        what: rotary
+        where: 
           ref: 
             - matrix_inner_bottom
           shift: [25, 0]
-        nets:
+        params:
           from: P7
           to: P16
           A: P2
           B: P3
           C: GND
       switch:
-        type: 4pst_switch
-        anchor: 
+        what: 4pst_switch
+        where: 
           ref: 
             - matrix_inner_bottom
           shift: [40, 0]
-        nets:
+        params:
           CMN: P10
           UP: P21
           DN: P19
