@@ -336,7 +336,7 @@ pcbs:
           reverse: true
           keycaps: true
           from: "{{column_net}}"
-          to: "GND"
+          to: "{{row_net}}"
       mcu_l:
         what: promicro
         where:
