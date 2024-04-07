@@ -403,7 +403,7 @@ pcbs:
           left: ''
           right: Bplus
       encoder:
-        what: rotary_encoder
+        what: rotary
         where: 
           ref: 
             - matrix_inner_bottom
