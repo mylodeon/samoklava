@@ -20,7 +20,7 @@ points:
           keycaps: true
         nets:
           from: =column_net
-          to: GND
+          to: =row_net
   zones:
     matrix:
       key.padding: ky
@@ -32,11 +32,14 @@ points:
             splay: 5
           rows:
             bottom:
-              column_net: P6
+              row_net: P5
+              column_net: P15
             home:
-              column_net: P5
+              row_net: P7
+              column_net: P15
             top:
-              column_net: P4
+              row_net: P8
+              column_net: P15
         ring:
           key:
             stagger: 0.65 ky
@@ -44,11 +47,14 @@ points:
             splay: -2
           rows:
             bottom:
-              column_net: P3
+              row_net: P4
+              column_net: P18
             home:
-              column_net: P2
+              row_net: P6
+              column_net: P18
             top:
-              column_net: P0
+              row_net: P7
+              column_net: P18
               bind: 55
         middle:
           key:
@@ -57,11 +63,14 @@ points:
             splay: -2
           rows:
             bottom:
-              column_net: P1
+              row_net: P6
+              column_net: P14
             home:
-              column_net: P18
+              row_net: P5
+              column_net: P19
             top:
-              column_net: P15
+              row_net: P6
+              column_net: P19
         index:
           key:
             stagger: -0.4 ky
@@ -69,21 +78,27 @@ points:
             splay: -1
           rows:
             bottom:
-              column_net: P14
+              row_net: P9
+              column_net: P20
             home:
-              column_net: P16
+              row_net: P4
+              column_net: P20
             top:
-              column_net: P10
+              row_net: P5
+              column_net: P20
         inner:
           key:
             stagger: -0.15 ky
             spread: kx
           rows:
             bottom:
-              column_net: P19
+              row_net: P8
+              column_net: P21
             home:
-              column_net: P20
+              row_net: P8
+              column_net: P14
             top:
+              row_net: P4
               column_net: P21
     thumbfan:
       anchor:
@@ -112,7 +127,7 @@ points:
             column_net: P9
       rows:
         thumb:
-          row_net: P7
+          row_net: GND
 outlines:
   # board dimensions according to JLCPCB: 122.28 mm x 101.05 mm
   raw:
@@ -387,6 +402,30 @@ pcbs:
           from: RAW
           left: ''
           right: Bplus
+      encoder:
+        type: rotary
+        anchor: 
+          ref: 
+            - matrix_inner_bottom
+          shift: [25, 0]
+        nets:
+          from: P7
+          to: P16
+          A: P2
+          B: P3
+          C: GND
+      switch:
+        type: 4pst_switch
+        anchor: 
+          ref: 
+            - matrix_inner_bottom
+          shift: [40, 0]
+        nets:
+          CMN: P10
+          UP: P21
+          DN: P19
+          LT: P15
+          RT: P16
       reset:
         what: reset_button
         where:
@@ -404,7 +443,9 @@ pcbs:
             - matrix_pinky_bottom
           shift: [0.75 kx, 0]
         params:
-          text: "Zuuzboard v0.1\\nby deonb"
+          h_size: 2,
+          v_size: 2,
+          text: "Zuuzboard v0.2"
           justify: left
       info_r:
         what: text
@@ -413,6 +454,8 @@ pcbs:
             - matrix_pinky_bottom
           shift: [0.75 kx, 0]
         params:
+          h_size: 2,
+          v_size: 2,
           layer: B.SilkS
-          text: "Zuuzboard v0.1\\nby deonb"
+          text: "Zuuzboard v0.2"
           justify: right mirror
