@@ -16,11 +16,12 @@
     RC(4,4)  [P8,P15] a1
     RC(4,5)  [P8,P14] b5
     RC(5,1)  [P9,P20] c4
-    RC(5,5)  [P9,P14] open  joy-left
-    RC(5,6)  [P9,P16] open  joy-right
+    RC(5,5)  [P9,P14] open  
+    RC(5,6)  [P9,P16] open  
     RC(6,0)  [P10,P21] open  joy-up
     RC(6,2)  [P10,P19] open  joy-down
-    RC(6,6)  [P10,P16] open  
+    RC(6,4)  [P10,P15] open  joy-left
+    RC(6,6)  [P10,P16] open  joy-left
 
     Right
     =====

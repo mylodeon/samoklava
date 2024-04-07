@@ -443,8 +443,6 @@ pcbs:
             - matrix_pinky_bottom
           shift: [0.75 kx, 0]
         params:
-          h_size: 2,
-          v_size: 2,
           text: "Zuuzboard v0.2"
           justify: left
       info_r:
@@ -454,8 +452,6 @@ pcbs:
             - matrix_pinky_bottom
           shift: [0.75 kx, 0]
         params:
-          h_size: 2,
-          v_size: 2,
           layer: B.SilkS
           text: "Zuuzboard v0.2"
           justify: right mirror
