@@ -2,16 +2,13 @@
 //
 
 module.exports = {
-    nets: {
+    params: {
+        designator: 'S',
         UP: undefined,
         DN: undefined,
         LT: undefined,
         RT: undefined,
-        CMN: undefined
-    },
-    params: {
-        class: 'switch',
-        // By placing a model in the path specified below KiCad will show it in the 3D viewer
+        CMN: undefined,
         model: './3d/04A-K01.stp'
     },
     body: p => `
@@ -45,13 +42,13 @@ module.exports = {
             (fp_arc (start -11.35 -0) (end -11.300 -0) (angle -180) (layer F.SilkS) (width 0.1))
 
             ${''/* pin names */}
-            (pad CMN thru_hole rect (at 0.000 -0) (size 1.830 1.830) (drill 1.22) (layers *.Cu *.Mask) ${p.net.CMN.str})
-            (pad UP thru_hole circle (at -6.350 -0) (size 1.830 1.830) (drill 1.22) (layers *.Cu *.Mask) ${p.net.UP.str})
-            (pad RT thru_hole circle (at 0.000 6.35) (size 1.830 1.830) (drill 1.22) (layers *.Cu *.Mask) ${p.net.RT.str})
-            (pad DN thru_hole circle (at 6.350 -0) (size 1.830 1.830) (drill 1.22) (layers *.Cu *.Mask) ${p.net.DN.str})
-            (pad LT thru_hole circle (at 0.000 -6.35) (size 1.830 1.830) (drill 1.22) (layers *.Cu *.Mask) ${p.net.LT.str})
+            (pad CMN thru_hole rect (at 0.000 -0) (size 1.830 1.830) (drill 1.22) (layers *.Cu *.Mask) ${p.CMN.str})
+            (pad UP thru_hole circle (at -6.350 -0) (size 1.830 1.830) (drill 1.22) (layers *.Cu *.Mask) ${p.UP.str})
+            (pad RT thru_hole circle (at 0.000 6.35) (size 1.830 1.830) (drill 1.22) (layers *.Cu *.Mask) ${p.RT.str})
+            (pad DN thru_hole circle (at 6.350 -0) (size 1.830 1.830) (drill 1.22) (layers *.Cu *.Mask) ${p.DN.str})
+            (pad LT thru_hole circle (at 0.000 -6.35) (size 1.830 1.830) (drill 1.22) (layers *.Cu *.Mask) ${p.LT.str})
 
-            (model ${p.param.model}
+            (model ${p.model}
                 (at (xyz 0 0 0))
                 (scale (xyz 1 1 1))
                 (rotate (xyz 0 0 0))
