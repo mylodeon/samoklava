@@ -103,31 +103,53 @@ points:
     thumbfan:
       anchor:
         ref: matrix_inner_bottom
-        shift: [-0.3 kx, -1.25 ky]
+        shift: [-0.2 kx, -1.25 ky]
       columns:
         near:
           key:
             spread: kx
             splay: -15
-            origin: [-0.8 kx, -1.5 ky]
+            origin: [-0.8 kx, -2 ky]
             column_net: P7
         home:
           key:
             spread: kx
-            splay: -12
+            splay: -20
             rotate: 90
-            origin: [1 kx, -1.5 ky]
+            origin: [0.95 kx, -1.15 ky]
             column_net: P8
         far:
           key:
             spread: kx
             splay: -10
             rotate: 90
-            origin: [-0.5 kx, -1.5 ky]
+            origin: [-0.5 kx, -1.8 ky]
             column_net: P9
       rows:
         thumb:
           row_net: GND
+#    thumbfantest1:
+#      anchor:
+#        ref: matrix_inner_bottom
+#        shift: [-0.6 kx, -1.8 ky]
+#      columns:
+#        home:
+#          key:
+#            spread: kx
+#            splay: -35
+#            rotate: 90
+#            origin: [0.55 kx, -3.55 ky]
+#            column_net: P8
+#        far:
+#          key:
+#            spread: kx
+#            splay: -10
+#            rotate: 90
+#            origin: [-0.55 kx, -1.2 ky]
+#            column_net: P9
+#      rows:
+#        thumb:
+#          row_net: GND
 outlines:
   # board dimensions according to JLCPCB: 122.28 mm x 101.05 mm
   raw:
@@ -139,14 +161,12 @@ outlines:
   thumbfan_glue:
     - what: polygon
       points:
-      - ref: matrix_inner_bottom
-        shift: [0.5 kx + 0px, -0.5 ky + 0.5 py]
+      - ref: matrix_inner_home
+        shift: [0 kx, 0 ky]
       - ref: thumbfan_far_thumb
-        shift: [0.64 kx - 0.5px, 0.4 ky + 0.5 py]
+        shift: [0.7 kx, -0.5 ky]
       - ref: thumbfan_far_thumb
         shift: [0 kx - 3px, -0.5 ky - 0.5 py]
-      - ref: thumbfan_near_thumb
-        shift: [-0 kx + 1 px, -0.5 ky - 0.5 py]
       - ref: matrix_pinky_bottom
         shift: [0.5 kx - 0.5 py, -0.5 ky - 0.5 py]
       - ref: matrix_pinky_home
@@ -193,12 +213,34 @@ outlines:
       asym: source
       size: [kx+3, ky+3] 
       corner: 2
+  thumb_home_spacing:
+    - what: rectangle 
+      where: thumbfan_home_thumb
+      asym: source
+      size: [kx*1.5, ky*1.7] 
+  thumb_far_spacing:
+    - what: rectangle 
+      where: thumbfan_far_thumb
+      asym: source
+      size: [kx*1.5, ky*1.5] 
+      corner: 2
+  switch4:
+    - what: rectangle
+      where:
+        - ref: matrix_middle_bottom
+          shift: [0, -28]
+      asym: source
+      size: 1.5 ky
+      corner: 2
   keywell:
     - "raw"
     - "+patch_inner"
     - "+patch_outer"
     - "+keycapspacing"
     - "+thumbfan_glue"
+    - "+thumb_home_spacing"
+    - "+thumb_far_spacing"
+    - "+switch4"
   base_outline:
     - "keywell"
     - "+controller_area"
@@ -206,8 +248,8 @@ outlines:
     top_left:
       what: circle
       where:
-        - ref: matrix_ring_home
-          shift: [-0.55 kx, 0.4 ky]
+        - ref: matrix_ring_top
+          shift: [-0.55 kx, -0.25 ky]
       radius: 1.05
     bottom_left:
       what: circle
@@ -219,13 +261,13 @@ outlines:
       what: circle
       where:
         - ref: matrix_inner_top
-          shift: [-0.5 kx, 0]
+          shift: [-0.52 kx, -0.35 ky]
       radius: 1.05
     palm:
       what: circle
       where:
         - ref: matrix_index_bottom
-          shift: [0.5, -1.06 ky]
+          shift: [-0.15 ky, -0.8 ky]
       radius: 1.05
     thumb:
       what: circle
@@ -236,15 +278,15 @@ outlines:
   mounting_holes:
     $extends: outlines.screw_holes
     top_left:
-      radius: 2.05
+      radius: 1.05
     bottom_left:
-      radius: 2.05
+      radius: 1.05
     top_right:
-      radius: 2.05
+      radius: 1.05
     palm:
-      radius: 2.05
+      radius: 1.05
     thumb:
-      radius: 2.05
+      radius: 1.05
   bottom_outline:
     - "base_outline"
     # TODO use footprints with pad + via reinforcement as mounting holes
@@ -258,26 +300,26 @@ outlines:
     # TODO use footprints with pad + via reinforcement as mounting holes
     - "-mounting_holes"
 pcbs:
-  top_plate:
-    outlines:
-      edge:
-        outline: plate
-        layer: Edge.Cuts
-    footprints:
-      jlc_order_number:
-        what: text
-        where:
-          ref:
-            - matrix_ring_home
-          shift: [-0.25 kx, 0.5 ky]
-        params:
-          text: "JLCJLCJLCJLC"
-          justify: left
-  bottom_plate:
-    outlines:
-      edge:
-        outline: bottom_outline
-        layer: Edge.Cuts
+#  top_plate:
+#    outlines:
+#      edge:
+#        outline: plate
+#        layer: Edge.Cuts
+#      jlc_order_number:
+#    footprints:
+#        what: text
+#        where:
+#          ref:
+#            - matrix_ring_home
+#          shift: [-0.25 kx, 0.5 ky]
+#        params:
+#          text: "JLCJLCJLCJLC"
+#          justify: left
+#  bottom_plate:
+#    outlines:
+#      edge:
+#        outline: bottom_outline
+#        layer: Edge.Cuts
   board:
     outlines:
       edge:
@@ -346,7 +388,7 @@ pcbs:
         where:
           ref:
             - matrix_inner_bottom
-          shift: [32, -15]
+          shift: [30, -11]
           rotate: 270
         params:
           reverse: true
@@ -406,8 +448,9 @@ pcbs:
         what: rotary
         where: 
           ref: 
-            - matrix_inner_bottom
-          shift: [25, 0]
+            - thumbfan_near_thumb	
+          shift: [-1.025 ky , 0]
+          rotate: 90
         params:
           from: P7
           to: P16
@@ -415,11 +458,11 @@ pcbs:
           B: P3
           C: GND
       switch:
-        what: 4pst_switch
+        what: pst4_switch
         where: 
           ref: 
-            - matrix_inner_bottom
-          shift: [40, 0]
+            - matrix_middle_bottom
+          shift: [0, -28]
         params:
           CMN: P10
           UP: P21
@@ -441,7 +484,7 @@ pcbs:
         where:
           ref:
             - matrix_pinky_bottom
-          shift: [0.75 kx, 0]
+          shift: [0.65 kx, -0.25 ky]
         params:
           text: "Zuuzboard v0.2"
           justify: left
@@ -450,7 +493,7 @@ pcbs:
         where:
           ref:
             - matrix_pinky_bottom
-          shift: [0.75 kx, 0]
+          shift: [0.65 kx, -0.25 ky]
         params:
           layer: B.SilkS
           text: "Zuuzboard v0.2"
