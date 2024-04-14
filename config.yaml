@@ -323,12 +323,12 @@ pcbs:
           rotate: 270
         params:
           orientation: up
-          P4: row_top
-          P5: row_home
-          P6: row_bottom
-          P7: row_thumb
-          P14: col_inner
-          P15: col_index
+          P14: row_top
+          P15: row_home
+          P16: row_bottom
+          P17: row_thumb
+          P4: col_inner
+          P5: col_index
           P18: col_middle
           P19: col_ring
           P20: col_pinky
@@ -341,34 +341,34 @@ pcbs:
           rotate: 270
         params:
           orientation: down
-      pad_plus:
-        what: pad
-        where:
-          ref:
-            - matrix_inner_top
-          shift: [23, -6]
-          rotate: 0
-        params:
-          front: true
-          back: true
-          width: 1.5
-          height: 1.5
-          text: "B+"
-          net: Bplus
-      pad_minus:
-        what: pad
-        where:
-          ref:
-            - matrix_inner_top
-          shift: [23, -3]
-          rotate: 0
-        params:
-          front: true
-          back: true
-          width: 1.5
-          height: 1.5
-          text: "B-"
-          net: GND
+  #    pad_plus:
+  #      what: pad
+  #      where:
+  #        ref:
+  #          - matrix_inner_top
+  #        shift: [23, -6]
+  #        rotate: 0
+  #      params:
+  #        front: true
+  #        back: true
+  #        width: 1.5
+  #        height: 1.5
+  #        text: "B+"
+  #        net: Bplus
+  #    pad_minus:
+  #      what: pad
+  #      where:
+  #        ref:
+  #          - matrix_inner_top
+  #        shift: [23, -3]
+  #        rotate: 0
+  #      params:
+  #        front: true
+  #        back: true
+  #        width: 1.5
+  #        height: 1.5
+  #        text: "B-"
+  #        net: GND
   #   trrs:
   #     what: trrs_tight
   #     where:
@@ -384,52 +384,52 @@ pcbs:
   #       B: VCC
   #       C: GND
   #       D: P0
-      jumper_l:
-        what: jumper
-        where:
-          ref:
-            - matrix_inner_bottom
-          shift: [23.5, 0]
-          rotate: 270
-        params:
-          side: B
-          from: Bplus
-          to: RAW
-      jumper_r:
-        what: jumper
-        where:
-          ref:
-            - matrix_inner_bottom
-          shift: [23.5, 0]
-          rotate: 270
-        params:
-          side: F
-          from: Bplus
-          to: RAW
-      slider_l:
-        what: slider_threeway
-        where:
-          ref:
-            - matrix_inner_bottom
-          shift: [30, 0]
-          rotate: 270
-        params:
-          side: F
-          from: RAW
-          left: Bplus
-          right: ''
-      slider_r:
-        what: slider_threeway
-        where:
-          ref:
-            - matrix_inner_bottom
-          shift: [30, 0]
-          rotate: 270
-        params:
-          side: B
-          from: RAW
-          left: ''
-          right: Bplus
+  #  jumper_l:
+  #    what: jumper
+  #    where:
+  #      ref:
+  #        - matrix_inner_bottom
+  #      shift: [23.5, 0]
+  #      rotate: 270
+  #    params:
+  #      side: B
+  #      from: Bplus
+  #      to: RAW
+  #  jumper_r:
+  #    what: jumper
+  #    where:
+  #      ref:
+  #        - matrix_inner_bottom
+  #      shift: [23.5, 0]
+  #      rotate: 270
+  #    params:
+  #      side: F
+  #      from: Bplus
+  #      to: RAW
+    #  slider_l:
+    #    what: slider_threeway
+    #    where:
+    #      ref:
+    #        - matrix_inner_bottom
+    #      shift: [30, 0]
+    #      rotate: 270
+    #    params:
+    #      side: F
+    #      from: RAW
+    #      left: Bplus
+    #      right: ''
+    #  slider_r:
+    #    what: slider_threeway
+    #    where:
+    #      ref:
+    #        - matrix_inner_bottom
+    #      shift: [30, 0]
+    #      rotate: 270
+    #    params:
+    #      side: B
+    #      from: RAW
+    #      left: ''
+    #      right: Bplus
     # encoder:
     #   what: rotary
     #   where: 
