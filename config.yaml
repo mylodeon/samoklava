@@ -326,10 +326,10 @@ pcbs:
           P14: row_top
           P15: row_home
           P16: row_bottom
-          P17: row_thumb
+          P18: row_thumb
           P4: col_inner
           P5: col_index
-          P18: col_middle
+          P6: col_middle
           P19: col_ring
           P20: col_pinky
       mcu_r:
