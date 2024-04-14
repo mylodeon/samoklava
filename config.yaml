@@ -326,11 +326,11 @@ pcbs:
           P3: row_home
           P7: row_bottom
           P14: row_thumb
-          P4: col_inner
-          P5: col_index
-          P6: col_middle
-          P19: col_ring
-          P20: col_pinky
+          #P4: col_inner
+          #P5: col_index
+          #P6: col_middle
+          #P19: col_ring
+          #P20: col_pinky
     #  mcu_r:
     #    what: promicro_pretty
     #    where:
