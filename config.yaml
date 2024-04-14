@@ -21,6 +21,16 @@ points:
         nets:
           from: =colrow
           to: =column_net
+      choc:
+        type: choc
+        anchor:
+          rotate: 180
+        params:
+          reverse: true
+          keycaps: true
+        nets:
+          from: =colrow
+          to: =column_net
       diode:
         type: diode
         nets:
@@ -305,12 +315,23 @@ pcbs:
           keycaps: true
           from: "{{colrow}}"
           to: "{{column_net}}"
+      choc:
+        what: choc
+        where:
+          - /matrix_.*/
+          - /thumbfan_.*/
+        adjust.rotate: 180
+        params:
+          reverse: true
+          keycaps: true
+          from: "{{colrow}}"
+          to: "{{column_net}}"
       diode:
         what: diode
         where:
           - /matrix_.*/
           - /thumbfan_.*/
-        adjust.shift: [0, -5]
+        adjust.shift: [0, -8]
         params:
           from: "{{colrow}}"
           to: "{{row_net}}"
