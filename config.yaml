@@ -314,19 +314,19 @@ pcbs:
         params:
           from: "{{colrow}}"
           to: "{{row_net}}"
-      mcu_l:
-        what: promicro_pretty
-        where:
-          ref:
-            - matrix_inner_top
-          shift: [20, -11]
-          rotate: 270
-        params:
-          P1: row_top
-          P3: row_home
-          P7: row_bottom
-          P14: row_thumb
-          #P4: col_inner
+    #  mcu_l:
+    #    what: promicro_pretty
+    #    where:
+    #      ref:
+    #        - matrix_inner_top
+    #      shift: [20, -11]
+    #      rotate: 270
+    #    params:
+    #      P1: row_top
+    #      P3: row_home
+    #      P7: row_bottom
+    #      P14: row_thumb
+    #      #P4: col_inner
           #P5: col_index
           #P6: col_middle
           #P19: col_ring
