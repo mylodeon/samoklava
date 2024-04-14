@@ -311,7 +311,7 @@ pcbs:
         what: diode
         where:
           - /matrix_.*/
-        adjust.shift: [0, -8]
+        adjust.shift: [0, -5]
         adjust.rotate: 180
         params:
           from: "{{colrow}}"
@@ -319,13 +319,14 @@ pcbs:
       vias:
         what: noref_via
         where:
-          - matrix_pinky_top
-          - matrix_ring_top
-          - matrix_middle_top
-          - matrix_index_top
-          - matrix_inner_top
+          #- matrix_pinky_top
+          #- matrix_ring_top
+          #- matrix_middle_top
+          #- matrix_index_top
+          #- matrix_inner_top
+          - /matrix_.*/
           - /thumbfan_.*/
-        adjust.shift: [-8, 7]
+        adjust.shift: [8, 7]
         params:
           net: "{{column_net}}"
       vias2:
