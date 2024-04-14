@@ -19,8 +19,15 @@ points:
           reverse: true
           keycaps: true
         nets:
-          from: =column_net
+          from: =colrow
+          to: =column_net
+      diode:
+        type: diode
+        nets:
+          from: =colrow
           to: =row_net
+        anchor:
+          shift: [0, -5]
   zones:
     matrix:
       key.padding: ky
@@ -30,76 +37,37 @@ points:
             stagger: 0 ky
             spread: kx
             splay: 5
-          rows:
-            bottom:
-              row_net: P5
-              column_net: P15
-            home:
-              row_net: P7
-              column_net: P15
-            top:
-              row_net: P8
-              column_net: P15
+            column_net: col_pinky
         ring:
           key:
             stagger: 0.65 ky
             spread: 19
             splay: -2
-          rows:
-            bottom:
-              row_net: P4
-              column_net: P18
-            home:
-              row_net: P6
-              column_net: P18
-            top:
-              row_net: P7
-              column_net: P18
-              bind: 55
+            column_net: col_ring
         middle:
           key:
             stagger: 0.4 ky
             spread: 19
             splay: -2
-          rows:
-            bottom:
-              row_net: P6
-              column_net: P14
-            home:
-              row_net: P5
-              column_net: P19
-            top:
-              row_net: P6
-              column_net: P19
+            column_net: col_middle
         index:
           key:
             stagger: -0.4 ky
             spread: 18.5
             splay: -1
-          rows:
-            bottom:
-              row_net: P9
-              column_net: P20
-            home:
-              row_net: P4
-              column_net: P20
-            top:
-              row_net: P5
-              column_net: P20
+            column_net: col_index
         inner:
           key:
             stagger: -0.15 ky
             spread: kx
-          rows:
-            bottom:
-              row_net: P8
-              column_net: P21
-            home:
-              row_net: P8
-              column_net: P14
-            top:
-              row_net: P4
-              column_net: P21
+            column_net: col_inner
+      rows:
+        bottom:
+          row_net: row_bottom
+        home:
+          row_net: row_home
+        top:
+          row_net: row_top
     thumbfan:
       anchor:
         ref: matrix_inner_bottom
@@ -110,24 +78,24 @@ points:
             spread: kx
             splay: -15
             origin: [-0.8 kx, -2 ky]
-            column_net: P7
+            column_net: col_middle
         home:
           key:
             spread: kx
             splay: -20
             rotate: 90
             origin: [0.95 kx, -1.15 ky]
-            column_net: P8
+            column_net: col_index
         far:
           key:
             spread: kx
             splay: -10
             rotate: 90
             origin: [-0.5 kx, -1.8 ky]
-            column_net: P9
+            column_net: col_inner
       rows:
         thumb:
-          row_net: GND
+          row_net: row_thumb
 #    thumbfantest1:
 #      anchor:
 #        ref: matrix_inner_bottom
@@ -346,6 +314,15 @@ pcbs:
           rotate: 270
         params:
           orientation: up
+          P4: row_top
+          P5: row_home
+          P6: row_bottom
+          P7: row_thumb
+          P14: col_inner
+          P15: col_index
+          P18: col_middle
+          P19: col_ring
+          P20: col_pinky
       mcu_r:
         what: promicro
         where:
@@ -452,23 +429,11 @@ pcbs:
           shift: [-1.025 ky , 0]
           rotate: 90
         params:
-          from: P7
-          to: P16
+          from: P16
+          to: GND
           A: P2
           B: P3
           C: GND
-      switch:
-        what: pst4_switch
-        where: 
-          ref: 
-            - matrix_middle_bottom
-          shift: [0, -28]
-        params:
-          CMN: P10
-          UP: P21
-          DN: P19
-          LT: P15
-          RT: P16
       reset:
         what: reset_button
         where:
