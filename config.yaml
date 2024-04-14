@@ -21,16 +21,6 @@ points:
         nets:
           from: =colrow
           to: =column_net
-      choc:
-        type: choc
-        anchor:
-          rotate: 180
-        params:
-          reverse: true
-          keycaps: true
-        nets:
-          from: =colrow
-          to: =column_net
       diode:
         type: diode
         nets:
@@ -88,24 +78,26 @@ points:
             spread: kx
             splay: -15
             origin: [-0.8 kx, -2 ky]
-            column_net: col_middle
+            column_net: thumb_middle
+            row_net: GND
         home:
           key:
             spread: kx
             splay: -20
             rotate: 90
             origin: [0.95 kx, -1.15 ky]
-            column_net: col_index
+            column_net: thumb_index
+            row_net: GND
         far:
           key:
             spread: kx
             splay: -10
             rotate: 90
             origin: [-0.5 kx, -1.8 ky]
-            column_net: col_inner
+            column_net: thumb_far
       rows:
         thumb:
-          row_net: row_thumb
+          row_net: GND
 #    thumbfantest1:
 #      anchor:
 #        ref: matrix_inner_bottom
@@ -315,26 +307,34 @@ pcbs:
           keycaps: true
           from: "{{colrow}}"
           to: "{{column_net}}"
-      choc:
-        what: choc
-        where:
-          - /matrix_.*/
-          - /thumbfan_.*/
-        adjust.rotate: 180
-        params:
-          reverse: true
-          keycaps: true
-          from: "{{colrow}}"
-          to: "{{column_net}}"
       diode:
         what: diode
         where:
           - /matrix_.*/
-          - /thumbfan_.*/
         adjust.shift: [0, -8]
+        adjust.rotate: 180
         params:
           from: "{{colrow}}"
           to: "{{row_net}}"
+      vias:
+        what: noref_via
+        where:
+          - matrix_pinky_top
+          - matrix_ring_top
+          - matrix_middle_top
+          - matrix_index_top
+          - matrix_inner_top
+          - /thumbfan_.*/
+        adjust.shift: [-8, 7]
+        params:
+          net: "{{column_net}}"
+      vias2:
+        what: noref_via
+        where:
+          - /thumbfan_.*/
+        adjust.shift: [8, 7]
+        params:
+          net: "GND"
     #  mcu_l:
     #    what: promicro_pretty
     #    where:
