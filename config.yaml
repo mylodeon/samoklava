@@ -303,7 +303,16 @@ pcbs:
           hotswap: true
           reverse: true
           keycaps: true
-          from: "{{column_net}}"
+          from: "{{colrow}}"
+          to: "{{column_net}}"
+      diode:
+        what: diode
+        where:
+          - /matrix_.*/
+          - /thumbfan_.*/
+        adjust.shift: [0, -5]
+        params:
+          from: "{{colrow}}"
           to: "{{row_net}}"
       mcu_l:
         what: promicro
