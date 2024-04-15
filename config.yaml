@@ -64,7 +64,7 @@ points:
           rows:
             bottom:
               row_net: P6
-              column_net: P1
+              column_net: P0
             home:
               row_net: P5
               column_net: P19
@@ -96,7 +96,7 @@ points:
               column_net: P21
             home:
               row_net: P2
-              column_net: P1
+              column_net: P0
             top:
               row_net: P4
               column_net: P21
@@ -212,7 +212,7 @@ outlines:
     - what: rectangle 
       where: true
       asym: source
-      size: [kx+10, ky+10] 
+      size: [kx+5, ky+5] 
       corner: 2
   thumb_home_spacing:
     - what: rectangle 
