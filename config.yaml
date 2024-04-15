@@ -32,10 +32,10 @@ points:
             splay: 10
           rows:
             bottom:
-              row_net: row6
+              row_net: row2
               column_net: col1
             home:
-              row_net: row2
+              row_net: row6
               column_net: col1
             top:
               row_net: row3
@@ -510,8 +510,8 @@ pcbs:
           shift: [-0.5 kx, -1.5 ky]
           rotate: 90
         params:
-          from: row2
-          to: col4
+          from: row4
+          to: col2
           A: enc1
           B: enc2
           C: GND
