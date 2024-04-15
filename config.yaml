@@ -32,14 +32,14 @@ points:
             splay: 10
           rows:
             bottom:
-              row_net: P5
-              column_net: P15
+              row_net: row6
+              column_net: col1
             home:
-              row_net: P1
-              column_net: P15
+              row_net: row2
+              column_net: col1
             top:
-              row_net: P2
-              column_net: P15
+              row_net: row3
+              column_net: col1
         ring:
           key:
             stagger: 0.65 ky
@@ -47,14 +47,14 @@ points:
             splay: -4
           rows:
             bottom:
-              row_net: P4
-              column_net: P18
+              row_net: row5
+              column_net: col3
             home:
-              row_net: P6
-              column_net: P18
+              row_net: row1
+              column_net: col3
             top:
-              row_net: P1
-              column_net: P18
+              row_net: row2
+              column_net: col3
               bind: 55
         middle:
           key:
@@ -63,14 +63,14 @@ points:
             splay: -4
           rows:
             bottom:
-              row_net: P6
-              column_net: P0
+              row_net: row1
+              column_net: col2
             home:
-              row_net: P5
-              column_net: P19
+              row_net: row6
+              column_net: col4
             top:
-              row_net: P6
-              column_net: P19
+              row_net: row1
+              column_net: col4
         index:
           key:
             stagger: -0.4 ky
@@ -78,28 +78,28 @@ points:
             splay: -2
           rows:
             bottom:
-              row_net: P3
-              column_net: P20
+              row_net: row4
+              column_net: col5
             home:
-              row_net: P4
-              column_net: P20
+              row_net: row5
+              column_net: col5
             top:
-              row_net: P5
-              column_net: P20
+              row_net: row6
+              column_net: col5
         inner:
           key:
             stagger: -0.15 ky
             spread: kx
           rows:
             bottom:
-              row_net: P2
-              column_net: P21
+              row_net: row3
+              column_net: col6
             home:
-              row_net: P2
-              column_net: P0
+              row_net: row3
+              column_net: col2
             top:
-              row_net: P4
-              column_net: P21
+              row_net: row5
+              column_net: col6
     thumbfan:
       anchor:
         ref: matrix_inner_bottom
@@ -111,21 +111,21 @@ points:
             splay: -29
             rotate: 90
             origin: [-1 kx, -1 ky]
-            column_net: P14
+            column_net: P9
         home:
           key:
             spread: kx
             splay: -8
             rotate: 90
             origin: [-0.5 kx, -0.85 ky]
-            column_net: P16
+            column_net: P10
         far:
           key:
             spread: kx
             splay: -8
             rotate: 90
             origin: [-0.6 kx, -0.85 ky]
-            column_net: P10
+            column_net: P14
       rows:
         thumb:
           row_net: GND
@@ -212,7 +212,7 @@ outlines:
     - what: rectangle 
       where: true
       asym: source
-      size: [kx+5, ky+5] 
+      size: [kx+10, ky+10] 
       corner: 2
   thumb_home_spacing:
     - what: rectangle 
@@ -370,6 +370,23 @@ pcbs:
           rotate: 270
         params:
           orientation: up
+          P1: row1
+          P2: row2
+          P3: row3
+          P4: row4
+          P5: row5
+          P6: row6
+          P7: enc1
+          P8: enc2
+          P9: thumb1
+          P10: thumb2
+          P14: thumb3
+          P15: col1
+          P16: col2
+          P18: col3
+          P19: col4
+          P20: col5
+          P21: col6
       mcu_r:
         what: promicro
         where:
@@ -379,6 +396,23 @@ pcbs:
           rotate: 270
         params:
           orientation: down
+          P1: row1
+          P2: row2
+          P3: row3
+          P4: row4
+          P5: row5
+          P6: row6
+          P7: enc1
+          P8: enc2
+          P9: thumb1
+          P10: thumb2
+          P14: thumb3
+          P15: col1
+          P16: col2
+          P18: col3
+          P19: col4
+          P20: col5
+          P21: col6
       pad_plus:
         what: pad
         where:
@@ -476,10 +510,10 @@ pcbs:
           shift: [-0.5 kx, -1.5 ky]
           rotate: 90
         params:
-          from: P7
-          to: GND
-          A: P8
-          B: P9
+          from: row2
+          to: col4
+          A: enc1
+          B: enc2
           C: GND
       reset:
         what: reset_button
