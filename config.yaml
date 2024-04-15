@@ -29,22 +29,22 @@ points:
           key:
             stagger: 0 ky
             spread: kx
-            splay: 5
+            splay: 10
           rows:
             bottom:
               row_net: P5
               column_net: P15
             home:
-              row_net: P7
+              row_net: P1
               column_net: P15
             top:
-              row_net: P8
+              row_net: P2
               column_net: P15
         ring:
           key:
             stagger: 0.65 ky
             spread: 19
-            splay: -2
+            splay: -4
           rows:
             bottom:
               row_net: P4
@@ -53,18 +53,18 @@ points:
               row_net: P6
               column_net: P18
             top:
-              row_net: P7
+              row_net: P1
               column_net: P18
               bind: 55
         middle:
           key:
             stagger: 0.4 ky
             spread: 19
-            splay: -2
+            splay: -4
           rows:
             bottom:
               row_net: P6
-              column_net: P14
+              column_net: P1
             home:
               row_net: P5
               column_net: P19
@@ -75,10 +75,10 @@ points:
           key:
             stagger: -0.4 ky
             spread: 18.5
-            splay: -1
+            splay: -2
           rows:
             bottom:
-              row_net: P9
+              row_net: P3
               column_net: P20
             home:
               row_net: P4
@@ -92,39 +92,40 @@ points:
             spread: kx
           rows:
             bottom:
-              row_net: P8
+              row_net: P2
               column_net: P21
             home:
-              row_net: P8
-              column_net: P14
+              row_net: P2
+              column_net: P1
             top:
               row_net: P4
               column_net: P21
     thumbfan:
       anchor:
         ref: matrix_inner_bottom
-        shift: [-0.2 kx, -1.25 ky]
+        shift: [-0.35 kx, -1.1 ky]
       columns:
         near:
           key:
             spread: kx
-            splay: -15
-            origin: [-0.8 kx, -2 ky]
-            column_net: P7
+            splay: -29
+            rotate: 90
+            origin: [-1 kx, -1 ky]
+            column_net: P14
         home:
           key:
             spread: kx
-            splay: -20
+            splay: -8
             rotate: 90
-            origin: [0.95 kx, -1.15 ky]
-            column_net: P8
+            origin: [-0.5 kx, -0.85 ky]
+            column_net: P16
         far:
           key:
             spread: kx
-            splay: -10
+            splay: -8
             rotate: 90
-            origin: [-0.5 kx, -1.8 ky]
-            column_net: P9
+            origin: [-0.6 kx, -0.85 ky]
+            column_net: P10
       rows:
         thumb:
           row_net: GND
@@ -211,13 +212,36 @@ outlines:
     - what: rectangle 
       where: true
       asym: source
-      size: [kx+3, ky+3] 
+      size: [kx+10, ky+10] 
       corner: 2
   thumb_home_spacing:
     - what: rectangle 
       where: thumbfan_home_thumb
       asym: source
       size: [kx*1.5, ky*1.7] 
+  thumbcap_far:
+    - what: rectangle 
+      where: 
+        - ref: thumbfan_far_thumb
+          shift: [0, 0]
+      size: [kx*2, ky] 
+  thumbcap_home:
+    - what: rectangle 
+      where: 
+        - ref: thumbfan_home_thumb
+          shift: [0, 0]
+      size: [kx*2, ky]
+  thumbcap_near:
+    - what: rectangle 
+      where: 
+        - ref: thumbfan_near_thumb
+          shift: [0, 0]
+      size: [kx*2, ky] 
+  thumbcaps:
+    - "thumbcap_far"
+    - "+thumbcap_home"
+    - "+thumbcap_near"
+    - "+keycaps"
   thumb_far_spacing:
     - what: rectangle 
       where: thumbfan_far_thumb
@@ -448,27 +472,15 @@ pcbs:
         what: rotary
         where: 
           ref: 
-            - thumbfan_near_thumb	
-          shift: [-1.025 ky , 0]
+            - matrix_index_bottom	
+          shift: [-0.5 kx, -1.5 ky]
           rotate: 90
         params:
           from: P7
-          to: P16
-          A: P2
-          B: P3
+          to: GND
+          A: P8
+          B: P9
           C: GND
-      switch:
-        what: pst4_switch
-        where: 
-          ref: 
-            - matrix_middle_bottom
-          shift: [0, -28]
-        params:
-          CMN: P10
-          UP: P21
-          DN: P19
-          LT: P15
-          RT: P16
       reset:
         what: reset_button
         where:
@@ -486,7 +498,7 @@ pcbs:
             - matrix_pinky_bottom
           shift: [0.65 kx, -0.25 ky]
         params:
-          text: "Zuuzboard v0.2"
+          text: "Zuuzboard v0.3"
           justify: left
       info_r:
         what: text
@@ -496,5 +508,5 @@ pcbs:
           shift: [0.65 kx, -0.25 ky]
         params:
           layer: B.SilkS
-          text: "Zuuzboard v0.2"
+          text: "Zuuzboard v0.3"
           justify: right mirror

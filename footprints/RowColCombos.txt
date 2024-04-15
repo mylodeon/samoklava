@@ -98,7 +98,12 @@
 	Available:
 
 	0 1 2 3 4 5 6 7 8 9 10 14 15 16 18 19 20 21
-	        x x x x x x hw  x  x hw  x  x  x  x
-		r rr            re       res
+	        x x x x x x     x  x     x  x  x  x 
+	e t e e              t        t
+	   
+	10 14 16 7 8 9
 
-		  rgb
+    14<->1	
+	1<->7
+	2<->8
+	3<->9
