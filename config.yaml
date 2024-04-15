@@ -111,21 +111,21 @@ points:
             splay: -29
             rotate: 90
             origin: [-1 kx, -1 ky]
-            column_net: P9
+            column_net: thumb1
         home:
           key:
             spread: kx
             splay: -8
             rotate: 90
             origin: [-0.5 kx, -0.85 ky]
-            column_net: P10
+            column_net: thumb2
         far:
           key:
             spread: kx
             splay: -8
             rotate: 90
             origin: [-0.6 kx, -0.85 ky]
-            column_net: P14
+            column_net: thumb3
       rows:
         thumb:
           row_net: GND
