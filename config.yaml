@@ -92,13 +92,13 @@ points:
             spread: kx
           rows:
             bottom:
-              row_net: row3
+              row_net: row5
               column_net: col6
             home:
               row_net: row3
               column_net: col2
             top:
-              row_net: row5
+              row_net: row3
               column_net: col6
     thumbfan:
       anchor:
@@ -362,14 +362,14 @@ pcbs:
           from: "{{column_net}}"
           to: "{{row_net}}"
       mcu_l:
-        what: promicro
+        what: promicro_pretty
         where:
           ref:
             - matrix_inner_top
           shift: [20, -11]
           rotate: 270
         params:
-          orientation: up
+          #orientation: up
           P1: row1
           P2: row6
           P3: row3
@@ -387,32 +387,32 @@ pcbs:
           P19: col2
           P20: col4
           P21: col6
-      mcu_r:
-        what: promicro
-        where:
-          ref:
-            - matrix_inner_top
-          shift: [22.5, -12.25]
-          rotate: 270
-        params:
-          orientation: down
-          P1: row1
-          P2: row6
-          P3: row3
-          P4: row4
-          P5: row5
-          P6: row2
-          P7: enc1
-          P8: enc2
-          P9: thumb1
-          P10: thumb2
-          P16: thumb3
-          P14: col1
-          P15: col5
-          P18: col3
-          P19: col2
-          P20: col4
-          P21: col6
+      # mcu_r:
+      #   what: promicro
+      #   where:
+      #     ref:
+      #       - matrix_inner_top
+      #     shift: [22.5, -12.25]
+      #     rotate: 270
+      #   params:
+      #     orientation: down
+      #     P1: row1
+      #     P2: row6
+      #     P3: row3
+      #     P4: row4
+      #     P5: row5
+      #     P6: row2
+      #     P7: enc1
+      #     P8: enc2
+      #     P9: thumb1
+      #     P10: thumb2
+      #     P16: thumb3
+      #     P14: col1
+      #     P15: col5
+      #     P18: col3
+      #     P19: col2
+      #     P20: col4
+      #     P21: col6
       # pad_plus:
       #   what: pad
       #   where:
