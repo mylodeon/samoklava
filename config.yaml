@@ -64,13 +64,13 @@ points:
           rows:
             bottom:
               row_net: row1
-              column_net: col2
+              column_net: col4
             home:
               row_net: row6
               column_net: col4
             top:
               row_net: row1
-              column_net: col4
+              column_net: col2
         index:
           key:
             stagger: -0.4 ky
@@ -212,7 +212,7 @@ outlines:
     - what: rectangle 
       where: true
       asym: source
-      size: [kx+10, ky+10] 
+      size: [kx+15, ky+15]
       corner: 2
   thumb_home_spacing:
     - what: rectangle 
@@ -371,21 +371,21 @@ pcbs:
         params:
           orientation: up
           P1: row1
-          P2: row2
+          P2: row6
           P3: row3
           P4: row4
           P5: row5
-          P6: row6
+          P6: row2
           P7: enc1
           P8: enc2
           P9: thumb1
           P10: thumb2
-          P14: thumb3
-          P15: col1
-          P16: col2
+          P16: thumb3
+          P14: col1
+          P15: col5
           P18: col3
-          P19: col4
-          P20: col5
+          P19: col2
+          P20: col4
           P21: col6
       mcu_r:
         what: promicro
@@ -397,111 +397,111 @@ pcbs:
         params:
           orientation: down
           P1: row1
-          P2: row2
+          P2: row6
           P3: row3
           P4: row4
           P5: row5
-          P6: row6
+          P6: row2
           P7: enc1
           P8: enc2
           P9: thumb1
           P10: thumb2
-          P14: thumb3
-          P15: col1
-          P16: col2
+          P16: thumb3
+          P14: col1
+          P15: col5
           P18: col3
-          P19: col4
-          P20: col5
+          P19: col2
+          P20: col4
           P21: col6
-      pad_plus:
-        what: pad
-        where:
-          ref:
-            - matrix_inner_top
-          shift: [23, -6]
-          rotate: 0
-        params:
-          front: true
-          back: true
-          width: 1.5
-          height: 1.5
-          text: "B+"
-          net: Bplus
-      pad_minus:
-        what: pad
-        where:
-          ref:
-            - matrix_inner_top
-          shift: [23, -3]
-          rotate: 0
-        params:
-          front: true
-          back: true
-          width: 1.5
-          height: 1.5
-          text: "B-"
-          net: GND
-      trrs:
-        what: trrs_tight
-        where:
-          ref:
-            - matrix_inner_bottom
-          shift: [30, -11]
-          rotate: 270
-        params:
-          reverse: true
-          symmetric: false
-          # The naming of the nets on this footprint is different from the Corne schematics.
-          A: ""
-          B: VCC
-          C: GND
-          D: P0
-      jumper_l:
-        what: jumper
-        where:
-          ref:
-            - matrix_inner_bottom
-          shift: [23.5, 0]
-          rotate: 270
-        params:
-          side: B
-          from: Bplus
-          to: RAW
-      jumper_r:
-        what: jumper
-        where:
-          ref:
-            - matrix_inner_bottom
-          shift: [23.5, 0]
-          rotate: 270
-        params:
-          side: F
-          from: Bplus
-          to: RAW
-      slider_l:
-        what: slider_threeway
-        where:
-          ref:
-            - matrix_inner_bottom
-          shift: [30, 0]
-          rotate: 270
-        params:
-          side: F
-          from: RAW
-          left: Bplus
-          right: ''
-      slider_r:
-        what: slider_threeway
-        where:
-          ref:
-            - matrix_inner_bottom
-          shift: [30, 0]
-          rotate: 270
-        params:
-          side: B
-          from: RAW
-          left: ''
-          right: Bplus
+      # pad_plus:
+      #   what: pad
+      #   where:
+      #     ref:
+      #       - matrix_inner_top
+      #     shift: [23, -6]
+      #     rotate: 0
+      #   params:
+      #     front: true
+      #     back: true
+      #     width: 1.5
+      #     height: 1.5
+      #     text: "B+"
+      #     net: Bplus
+      # pad_minus:
+      #   what: pad
+      #   where:
+      #     ref:
+      #       - matrix_inner_top
+      #     shift: [23, -3]
+      #     rotate: 0
+      #   params:
+      #     front: true
+      #     back: true
+      #     width: 1.5
+      #     height: 1.5
+      #     text: "B-"
+      #     net: GND
+      # trrs:
+      #   what: trrs_tight
+      #   where:
+      #     ref:
+      #       - matrix_inner_bottom
+      #     shift: [30, -11]
+      #     rotate: 270
+      #   params:
+      #     reverse: true
+      #     symmetric: false
+      #     # The naming of the nets on this footprint is different from the Corne schematics.
+      #     A: ""
+      #     B: VCC
+      #     C: GND
+      #     D: P0
+      #jumper_l:
+      #  what: jumper
+      #  where:
+      #    ref:
+      #      - matrix_inner_bottom
+      #    shift: [23.5, 0]
+      #    rotate: 270
+      #  params:
+      #    side: B
+      #    from: Bplus
+      #    to: RAW
+      #jumper_r:
+      #  what: jumper
+      #  where:
+      #    ref:
+      #      - matrix_inner_bottom
+      #    shift: [23.5, 0]
+      #    rotate: 270
+      #  params:
+      #    side: F
+      #    from: Bplus
+      #    to: RAW
+      ## slider_l:
+      #   what: slider_threeway
+      #   where:
+      #     ref:
+      #       - matrix_inner_bottom
+      #     shift: [30, 0]
+      #     rotate: 270
+      #   params:
+      #     side: F
+      #     from: RAW
+      #     left: Bplus
+      #     right: ''
+      # slider_r:
+      #   what: slider_threeway
+      #   where:
+      #     ref:
+      #       - matrix_inner_bottom
+      #     shift: [30, 0]
+      #     rotate: 270
+      #   params:
+      #     side: B
+      #     from: RAW
+      #     left: ''
+      #     right: Bplus
       encoder:
         what: rotary
         where: 
@@ -519,9 +519,9 @@ pcbs:
         what: reset_button
         where:
           ref:
-            - matrix_inner_bottom
-          shift: [17, 0]
-          rotate: 270
+            - matrix_inner_top
+          shift: [0, 0.7 ky]
+          rotate: 0
         params:
           from: GND
           to: RST
