@@ -521,7 +521,7 @@ pcbs:
           ref:
             - matrix_inner_bottom
           shift: [1 kx, 0 ky]
-          rotate: 180
+          rotate: 270
         params:
           from: GND
           to: RST
