@@ -196,7 +196,7 @@ outlines:
         - ref: matrix_inner_top
           # re-tranalte to new anchor position
           shift: [32/2 + 0 kx, 76.5/2 - 4.05 ky]
-      size: [32, 76.5]
+      size: [40, 76.5]
       corner: px
   switches:
     - what: rectangle
@@ -519,9 +519,9 @@ pcbs:
         what: reset_button
         where:
           ref:
-            - matrix_inner_top
-          shift: [0, 0.7 ky]
-          rotate: 0
+            - matrix_inner_bottom
+          shift: [1 kx, 0 ky]
+          rotate: 180
         params:
           from: GND
           to: RST
