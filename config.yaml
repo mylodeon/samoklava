@@ -44,7 +44,7 @@ points:
           key:
             stagger: 0.65 ky
             spread: 19
-            splay: -5
+            splay: -6
           rows:
             bottom:
               row_net: row5
@@ -248,14 +248,6 @@ outlines:
       asym: source
       size: [kx*1.5, ky*1.5] 
       corner: 2
-  switch4:
-    - what: rectangle
-      where:
-        - ref: matrix_middle_bottom
-          shift: [0, -28]
-      asym: source
-      size: 1.5 ky
-      corner: 2
   keywell:
     - "raw"
     - "+patch_inner"
@@ -264,7 +256,6 @@ outlines:
     - "+thumbfan_glue"
     - "+thumb_home_spacing"
     - "+thumb_far_spacing"
-    - "+switch4"
   base_outline:
     - "keywell"
     - "+controller_area"
@@ -507,7 +498,7 @@ pcbs:
         where: 
           ref: 
             - matrix_index_bottom	
-          shift: [-0.5 kx, -1.5 ky]
+          shift: [2.5 kx, -0.5 ky]
           rotate: 90
         params:
           from: row4
@@ -515,13 +506,26 @@ pcbs:
           A: enc1
           B: enc2
           C: GND
+      encoder2:
+        what: rollerencoder
+        where: 
+          ref: 
+            - matrix_inner_bottom	
+          shift: [-1.5 kx, -1 ky]
+          rotate: 180
+        params:
+          from: row4
+          to: col2
+          A: enc1
+          B: enc2
+          CMN: GND
       reset:
         what: reset_button
         where:
           ref:
-            - matrix_inner_bottom
-          shift: [1 kx, 0 ky]
-          rotate: 270
+            - matrix_inner_top
+          shift: [1.75 kx, -0.5 ky]
+          rotate: 90
         params:
           from: GND
           to: RST
@@ -548,9 +552,9 @@ pcbs:
         what: ec11debounce
         where: 
           ref: 
-            - matrix_index_bottom	
-          shift: [-0.5 kx, -0.75 ky]
-          rotate: 0
+            - matrix_inner_bottom	
+          shift: [0.85 kx, -0.5 ky]
+          rotate: 90
         params:
           GND1: GND
           VCC1: VCC
