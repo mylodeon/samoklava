@@ -1,7 +1,7 @@
 meta:
   engine: 4.0.4
   name: Zuuzboard
-  version: 0.35
+  version: 0.4
   author: Deon
   url: https://github.com/soundmonster/samoklava
 units:
@@ -13,7 +13,7 @@ points:
   key:
     footprints:
       choc_hotswap:
-        type: choc
+        type: combochoc
         params:
           hotswap: true
           reverse: true
@@ -21,6 +21,7 @@ points:
         nets:
           from: =column_net
           to: =row_net
+          to2: =key_net
   zones:
     matrix:
       key.padding: ky
@@ -29,17 +30,17 @@ points:
           key:
             stagger: 0 ky
             spread: kx
-            splay: 11
+            splay: 12
           rows:
             bottom:
-              row_net: row2
               column_net: col1
+              key_net: c1r3
             home:
-              row_net: row6
               column_net: col1
+              key_net: c1r2
             top:
-              row_net: row3
               column_net: col1
+              key_net: c1r1
         ring:
           key:
             stagger: 0.65 ky
@@ -47,15 +48,15 @@ points:
             splay: -6
           rows:
             bottom:
-              row_net: row5
-              column_net: col3
+              column_net: col2
+              key_net: c2r3
             home:
-              row_net: row1
-              column_net: col3
+              column_net: col2
+              key_net: c2r2
             top:
-              row_net: row2
-              column_net: col3
+              column_net: col2
               bind: 55
+              key_net: c2r1
         middle:
           key:
             stagger: 0.4 ky
@@ -63,14 +64,14 @@ points:
             splay: -4
           rows:
             bottom:
-              row_net: row1
-              column_net: col4
+              column_net: col3
+              key_net: c3r3
             home:
-              row_net: row6
-              column_net: col4
+              column_net: col3
+              key_net: c3r2
             top:
-              row_net: row1
-              column_net: col2
+              column_net: col3
+              key_net: c3r1
         index:
           key:
             stagger: -0.4 ky
@@ -78,28 +79,35 @@ points:
             splay: -2
           rows:
             bottom:
-              row_net: row4
-              column_net: col5
+              column_net: col4
+              key_net: c4r3
             home:
-              row_net: row5
-              column_net: col5
+              column_net: col4
+              key_net: c4r2
             top:
-              row_net: row6
-              column_net: col5
+              column_net: col4
+              key_net: c4r1
         inner:
           key:
             stagger: -0.15 ky
             spread: kx
           rows:
             bottom:
-              row_net: row5
-              column_net: col6
+              column_net: col5
+              key_net: c5r3
             home:
-              row_net: row3
-              column_net: col2
+              column_net: col5
+              key_net: c5r2
             top:
-              row_net: row3
-              column_net: col6
+              column_net: col5
+              key_net: c5r1
+      rows:
+        bottom:
+          row_net: row3
+        home:
+          row_net: row2
+        top:
+          row_net: row1
     thumbfan:
       anchor:
         ref: matrix_inner_bottom
@@ -111,24 +119,27 @@ points:
             splay: -29
             rotate: 90
             origin: [-1 kx, -1 ky]
-            column_net: thumb1
+            column_net: col5
+            key_net: c5r4
         home:
           key:
             spread: kx
             splay: -8
             rotate: 90
             origin: [-0.5 kx, -0.85 ky]
-            column_net: thumb2
+            column_net: col4
+            key_net: c4r4
         far:
           key:
             spread: kx
             splay: -8
             rotate: 90
             origin: [-0.6 kx, -0.85 ky]
-            column_net: thumb3
+            column_net: col3
+            key_net: c3r4
       rows:
         thumb:
-          row_net: GND
+          row_net: row4
 #    thumbfantest1:
 #      anchor:
 #        ref: matrix_inner_bottom
@@ -340,7 +351,7 @@ pcbs:
         layer: Edge.Cuts
     footprints:
       choc_hotswap:
-        what: choc
+        what: combochoc
         where:
           - /matrix_.*/
           - /thumbfan_.*/
@@ -350,6 +361,18 @@ pcbs:
           keycaps: true
           from: "{{column_net}}"
           to: "{{row_net}}"
+          to2: "{{key_net}}"
+      #choc:
+      #  what: choc
+      #  where:
+      #    - /matrix_.*/
+      #    - /thumbfan_.*/
+      #  adjust.rotate: 180
+      #  params:
+      #    reverse: true
+      #    keycaps: true
+      #    from: "{{column_net}}"
+      #    to: "{{row_net}}"
       mcu_l:
         what: promicro_pretty
         where:
@@ -359,23 +382,23 @@ pcbs:
           rotate: 270
         params:
           #orientation: up
-          P1: row1
-          P2: row6
-          P3: row3
-          P4: row4
+          P1: row4
+          P2: row1
+          P3: row2
+          P4: row3
           P5: row5
-          P6: row2
+          P6: row6
           P7: deb1
           P8: deb2
           P9: thumb1
           P10: thumb2
           P16: thumb3
-          P14: col1
-          P15: col5
-          P18: col3
-          P19: col2
-          P20: col4
-          P21: col6
+          P14: col6
+          P15: col1
+          P18: col2
+          P19: col3
+          P20: col5
+          P21: col4
       # mcu_r:
       #   what: promicro
       #   where:
@@ -504,26 +527,26 @@ pcbs:
           A: enc1
           B: enc2
           C: GND
-      encoder2:
-        what: rollerencoder
-        where: 
-          ref: 
-            - matrix_inner_bottom	
-          shift: [-1.5 kx, -1 ky]
-          rotate: 180
-        params:
-          from: row4
-          to: col2
-          A: enc1
-          B: enc2
-          CMN: GND
+#      encoder2:
+#        what: rollerencoder
+#        where: 
+#          ref: 
+#            - matrix_inner_bottom	
+#          shift: [-1.5 kx, -1 ky]
+#          rotate: 180
+#        params:
+#          from: row4
+#          to: col2
+#          A: enc1
+#          B: enc2
+#          CMN: GND
       reset:
         what: reset_button
         where:
           ref:
             - matrix_inner_top
-          shift: [1.75 kx, -0.5 ky]
-          rotate: 90
+          shift: [1.75 kx, -0.1 ky]
+          rotate: 270
         params:
           from: GND
           to: RST
@@ -534,7 +557,7 @@ pcbs:
             - matrix_pinky_bottom
           shift: [0.65 kx, -0.25 ky]
         params:
-          text: "Zuuzboard v0.35"
+          text: "Zuuzboard v0.4"
           justify: left
       info_r:
         what: text
@@ -544,7 +567,7 @@ pcbs:
           shift: [0.65 kx, -0.25 ky]
         params:
           layer: B.SilkS
-          text: "Zuuzboard v0.35"
+          text: "Zuuzboard v0.4"
           justify: right mirror
       debouncer:
         what: ec11debounce
