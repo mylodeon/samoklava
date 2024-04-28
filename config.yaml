@@ -29,7 +29,7 @@ points:
           key:
             stagger: 0 ky
             spread: kx
-            splay: 10
+            splay: 11
           rows:
             bottom:
               row_net: row2
@@ -44,7 +44,7 @@ points:
           key:
             stagger: 0.65 ky
             spread: 19
-            splay: -4
+            splay: -5
           rows:
             bottom:
               row_net: row5
@@ -291,7 +291,7 @@ outlines:
       what: circle
       where:
         - ref: matrix_index_bottom
-          shift: [-0.15 ky, -0.8 ky]
+          shift: [0.15 ky, -0.8 ky]
       radius: 1.05
     thumb:
       what: circle
@@ -376,8 +376,8 @@ pcbs:
           P4: row4
           P5: row5
           P6: row2
-          P7: enc1
-          P8: enc2
+          P7: deb1
+          P8: deb2
           P9: thumb1
           P10: thumb2
           P16: thumb3
@@ -544,3 +544,17 @@ pcbs:
           layer: B.SilkS
           text: "Zuuzboard v0.3"
           justify: right mirror
+      debouncer:
+        what: ec11debounce
+        where: 
+          ref: 
+            - matrix_index_bottom	
+          shift: [-0.5 kx, -0.75 ky]
+          rotate: 0
+        params:
+          GND1: GND
+          VCC1: VCC
+          RE1: enc1
+          RE4: enc2
+          MCU1: deb1
+          MCU2: deb2
