@@ -163,15 +163,13 @@ outlines:
     - what: polygon
       points:
       - ref: matrix_inner_home
-        shift: [0 kx, 0 ky]
+        shift: [0 kx, 1 ky]
       - ref: thumbfan_far_thumb
         shift: [0.7 kx, -0.5 ky]
       - ref: thumbfan_far_thumb
-        shift: [0 kx - 3px, -0.5 ky - 0.5 py]
+        shift: [-0 kx - 5px, .5 ky - 0.5 py]
       - ref: matrix_pinky_bottom
-        shift: [0.5 kx - 0.5 py, -0.5 ky - 0.5 py]
-      - ref: matrix_pinky_home
-      - ref: matrix_inner_home
+        shift: [0.5 kx - 2.5 py, -0.5 ky - 0.5 py]
   patch_outer:
     - what: polygon
       points:
