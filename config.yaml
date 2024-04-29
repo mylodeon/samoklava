@@ -221,7 +221,7 @@ outlines:
     - what: rectangle 
       where: true
       asym: source
-      size: [kx+15, ky+15]
+      size: [kx+8, ky+8]
       corner: 2
   thumb_home_spacing:
     - what: rectangle 
@@ -273,7 +273,7 @@ outlines:
       what: circle
       where:
         - ref: matrix_ring_top
-          shift: [-0.55 kx, -0.25 ky]
+          shift: [-0.65 kx, -0.25 ky]
       radius: 1.05
     bottom_left:
       what: circle
@@ -285,7 +285,7 @@ outlines:
       what: circle
       where:
         - ref: matrix_inner_top
-          shift: [-0.52 kx, -0.35 ky]
+          shift: [-0.52 kx, -0.475 ky]
       radius: 1.05
     palm:
       what: circle
@@ -382,18 +382,15 @@ pcbs:
           rotate: 270
         params:
           #orientation: up
-          P1: row4
           P2: row1
           P3: row2
           P4: row3
-          P5: row5
-          P6: row6
-          P7: deb1
-          P8: deb2
-          P9: thumb1
-          P10: thumb2
-          P16: thumb3
-          P14: col6
+          P5: row4
+          P6: row5
+          P9: deb1
+          P16: deb2
+          P14: encswitch1
+          P8: encswitch2
           P15: col1
           P18: col2
           P19: col3
@@ -522,24 +519,24 @@ pcbs:
           shift: [2.5 kx, -0.5 ky]
           rotate: 90
         params:
-          from: row4
-          to: col2
+          from: encswitch1
+          to: GND
           A: enc1
           B: enc2
           C: GND
-#      encoder2:
-#        what: rollerencoder
-#        where: 
-#          ref: 
-#            - matrix_inner_bottom	
-#          shift: [-1.5 kx, -1 ky]
-#          rotate: 180
-#        params:
-#          from: row4
-#          to: col2
-#          A: enc1
-#          B: enc2
-#          CMN: GND
+      encoder2:
+        what: rollerencoder
+        where: 
+          ref: 
+            - matrix_inner_bottom	
+          shift: [-1.5 kx, -1 ky]
+          rotate: 180
+        params:
+          from: encswitch2
+          to: GND
+          A: enc1
+          B: enc2
+          CMN: GND
       reset:
         what: reset_button
         where:
@@ -577,8 +574,8 @@ pcbs:
           shift: [0.85 kx, -0.5 ky]
           rotate: 90
         params:
-          GND1: GND
-          VCC1: VCC
+          GND2: GND
+          VCC2: VCC
           RE1: enc1
           RE4: enc2
           MCU1: deb1
